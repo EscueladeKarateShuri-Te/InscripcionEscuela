@@ -328,6 +328,7 @@
     <button type="submit">Enviar</button>
   </form>
 
+  
   <script>
     const radios = document.querySelectorAll("input[name='es_mayor']");
     const formMayor = document.getElementById("formulario-mayor");
@@ -399,11 +400,11 @@
         datos.firma = canvas.toDataURL("image/png");
 
         try {
-          const res = await fetch("http://localhost:3000/api/enviar", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(datos)
-          });
+          const res = await fetch("https://backendprobando.onrender.com/api/enviar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(datos),
+        });
 
           if (res.ok) alert("Formulario enviado correctamente.");
           else alert("Error al enviar el formulario.");
